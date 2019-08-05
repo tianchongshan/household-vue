@@ -1,90 +1,89 @@
 <template>
   <div class="backlogin">
 
-    <div class="login_box">
-      <Form ref="formLogin" :model="formLogin" :rules="ruleLogin">
-      <div class="title">后台登录</div>
-      <div>
-        <FormItem prop="username">
-           <input v-model="formLogin.username" class="myinput" type="text" placeholder="请输入用户名"  />
-        </FormItem>
-        <FormItem prop="password">
-           <input v-model="formLogin.password" @keyup.13="login" class="myinput" type="password" placeholder="请输入密码"  />
-        </FormItem>
-      </div>
-      <div class="login_other">
-        <a href="javascript:;">注册</a>
-        <input type="checkbox" id="remenberme" />
-        <label for="remenberme">记住我</label>
-      </div>
-        <FormItem>
-            <Button :disabled="disablebtn" class="login" @click="login('formLogin')" >登录</Button>
-        </FormItem>
-      </Form>
+    <!-- 登录表单 -->
+    <el-form :model="login" status-icon :rules="rule" ref="login">
+      <el-form-item prop="username">
+        <el-input prefix-icon="el-icon-ump-yonghu" v-model="login.username"
+                  auto-complete="off"/>
+      </el-form-item>
+      <el-form-item prop="password">
+        <el-input prefix-icon="el-icon-ump-mima" type="password" v-model="login.password"
+                  auto-complete="off"/>
+      </el-form-item>
+      <el-form-item>
+        <el-checkbox class="check" v-model="checked">记住我</el-checkbox>
+      </el-form-item>
+      <el-form-item>
+        <el-button class="btn" type="primary" @click="submitForm('login')">登录</el-button>
+      </el-form-item>
+    </el-form>
+    <div>
+      <p><a href="#" class="tips">还没有账号？点我去注册</a></p>
     </div>
   </div>
 </template>
 <script>
-    import {
-        Toast
-    } from 'mint-ui';
-    import {
-        mapMutations
-    } from 'vuex';
-
     export default {
-        name: 'backlogin',
+        name: 'login',
         data() {
+            var checkUsename=(rule,value,callback) => {
+                if(value === ''){
+                    callback(new Error('请输入用户名'));
+                }else{
+                    callback();
+                }
+            };
+            var checkPassword = (rule,value,callback) => {
+                if(value === ''){
+                    callback(new Error('请输入密码'));
+                }else{
+                    callback();
+                }
+            };
+
             return {
-                formLogin: {
-                    username: null,
-                    password: null,
-                    disablebtn: false,
-                    loginText: "登录"
+                checked:false,
+                token: '',
+                login: {
+                    username: '',
+                    password: ''
                 },
-                ruleLogin: {
+                rule: {
                     userName: [
-                        {required: true, message: '请填写用户名', trigger: 'blur'}
+                        {validator:checkUsename, trigger: 'blur'}
                     ],
                     password: [
-                        {required: true, message: '请填写密码', trigger: 'blur'},
+                        {validator:checkPassword, trigger: 'blur'},
                     ]
                 }
             }
         },
         methods: {
-          ...mapMutations(['changeLogin']),
-            login(formLogin) {
-                let _this = this;
-                if(this.loginFrom.userName === ''|| this.loginFrom.password === ''){
-                    alert('账号或密码不能为空');
-                }else{
-                    this.axios({
-                        methos: 'post',
-                        url: '/sys/user/login',
-                        data: _this.loginFrom
-                    }).then.(res=>{
-                        console.log(res.data);
-                        _this.userToken = 'Bearer' + res.data.data.body.token;
-                        //将用户token保存到vuex
-                        _this.changeLogin({Authorization:_this.userToken});
-                        _this.$router.push('/home');
-                        alert('登录成功')
-                    }).catch(error => {
-                        alert('账号或密码错误');
-                        console,log(error);
-                    });
-                }
-                /*this.$refs[formLogin].validate((valid) => {
+            submitForm(login) {
+                this.$refs[login].validate((valid) => {
                     if (valid) {
-                        this.$store.dispatch('users/userLogin', {
-                            "user_name": this.formLogin.userName,
-                            "user_password": this.formLogin.password,
-                            "router": this.$router
-                        })
+                        this.$http.post('http://127.0.0.1:8085/sys/user/login', {
+                            "username": this.login.userName,
+                            "password": this.login.password,
+                        },{
+                            'Content-Type': 'application/json',
+                            'Access-Control-Allow-Origin': '*'
+                        }).then(result => {
+                            console.log(result);
+                            if(result.bodyTest == 'index'){
+                                this.$router.push({path:'HelloWorld'});
+                            }else{
+                                console.log("登录失败 ");
+                                return false;
+                            }
+                        });
+                    }else{
+                        console.log("error submit");
+                        return false;
                     }
-                })*/
-            }
+                });
+            },
         }
     };
 </script>

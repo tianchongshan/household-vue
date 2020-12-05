@@ -23,6 +23,9 @@ module.exports = {
     dsdsdsds,
     sdsdsd
     sdsdsd
+    sdsdsdsd
+    sdsdsdsd
+    sdsdsd
 
     /**
      * Source Maps

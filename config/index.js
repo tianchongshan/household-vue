@@ -10,7 +10,7 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
 
-edasds
+
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
@@ -19,7 +19,10 @@ edasds
     errorOverlay: true,
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
-
+    sdsdsdsd,
+    dsdsdsds,
+    sdsdsd
+    sdsdsd
 
     /**
      * Source Maps

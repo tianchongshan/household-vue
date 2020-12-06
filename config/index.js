@@ -25,6 +25,8 @@ fdfasda
 
     sdada
     asda
+    sdasda
+    readAsDataURLadsad
     /**
      * Source Maps
      */

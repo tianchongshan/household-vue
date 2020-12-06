@@ -19,6 +19,7 @@ module.exports = {
     errorOverlay: true,
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
+
 fdfasda
     sdadsad
     dsds
@@ -27,6 +28,14 @@ fdfasda
     asda
     sdasda
     readAsDataURLadsad
+    sdsdsdsd,
+    dsdsdsds,
+    sdsdsd
+    sdsdsd
+    sadsdsdsd
+    sdsd
+dependabot/npm_and_yarn/websocket-extensions-0.1.4
+
     /**
      * Source Maps
      */

@@ -21,6 +21,7 @@ module.exports = {
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
 fdfasda
     sdadsad
+    dsds
     /**
      * Source Maps
      */

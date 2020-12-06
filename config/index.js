@@ -19,18 +19,7 @@ module.exports = {
     errorOverlay: true,
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
-    sdsdsdsd,
-    dsdsdsds,
-    sdsdsd
-    sdsdsd
-    sdsdsdsd
-    sdsdsdsd
-    sdsdsd
-    sdsdssdsd
-    sdsds
-    sadsdsdsd
-    sdsd
-dependabot/npm_and_yarn/websocket-extensions-0.1.4
+
 
     /**
      * Source Maps

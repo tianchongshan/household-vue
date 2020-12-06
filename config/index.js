@@ -22,6 +22,9 @@ module.exports = {
 fdfasda
     sdadsad
     dsds
+
+    sdada
+    asda
     /**
      * Source Maps
      */

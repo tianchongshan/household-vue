@@ -8,6 +8,9 @@ module.exports = {
 dsdsds
     dsdada
     asdada
+
+    readAsDataURLasdada
+    asdadas
     // Paths
     assetsSubDirectory: 'static',
 萨达达

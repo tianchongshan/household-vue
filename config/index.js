@@ -19,6 +19,8 @@ dsdsds
     asdada
     adsad
 
+    readAsDataURLadasda
+
 
     // Various u8yhhuhuDev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST

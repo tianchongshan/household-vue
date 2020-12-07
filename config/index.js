@@ -6,6 +6,8 @@ const path = require('path')
 module.exports = {
   dev: {
 dsdsds
+    dsdada
+    asdada
     // Paths
     assetsSubDirectory: 'static',
 萨达达

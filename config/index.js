@@ -19,24 +19,6 @@ module.exports = {
     errorOverlay: true,
     notifyOnErrors: true,343434
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
-
-fdfasda
-    sdadsad
-    dsds
-sdsadsads
-    sdada
-    asda
-    sdasda
-    readAsDataURLadsad
-    sdsdsdsd,
-    dsdsdsds,
-    sdsdsd
-    sdsdsd
-    sadsdsdsd
-    sdsd
-    sdsd
-    sdsdsd
-    dsdsdsd
 dependabot/npm_and_yarn/websocket-extensions-0.1.4
 
     /**
